@@ -1,0 +1,35 @@
+{
+  "name": "thiago_jose_augustin_api_m1",
+  "version": "1.0.0",
+  "description": "Desenvolvimento de uma API utilizando Node.js e as bibliotecas \"mongoose\", \"express\", “body-parser”, “bcrypt” e “jsonwebtoken”.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiago-augustin/thiago_jose_augustin_api_m1.git"
+  },
+  "keywords": [
+    "api",
+    "node-js",
+    "mongoose",
+    "express",
+    "body-parser",
+    "bcrypt",
+    "jsonwebtoken"
+  ],
+  "author": "Thiago José Augustin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiago-augustin/thiago_jose_augustin_api_m1/issues"
+  },
+  "homepage": "https://github.com/thiago-augustin/thiago_jose_augustin_api_m1#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.5"
+  }
+}
