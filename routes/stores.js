@@ -3,7 +3,7 @@ const express = require('express');
 // importando as funcionalidades do 'express' para trabalho com rotas
 const router = express.Router();
 // importando o 'model' do usuário
-const Shops = require('../models/shops');
+const Stores = require('../models/stores');
 // importando a biblioteca 'bcrypt'
 const bcrypt = require('bcrypt');
 // importando a biblioteca 'jsonwebtoken'
@@ -18,19 +18,19 @@ const config = require('../config/config');
  * 
  */
 
-// criando o endpoint para listar todos os shops
+// criando o endpoint para listar todos os stores
 router.get('/', async (req,res) => {
     try {
-        // criando um objeto para receber os shops
-        const shops = await Shops.find({});
-        return res.send(shops);
+        // criando um objeto para receber os stores
+        const stores = await Stores.find({});
+        return res.send(stores);
     }
     catch (err) {
-        return res.status(500).send({ error: 'Erro na busca dos shops!' });
+        return res.status(500).send({ error: 'Erro na busca dos stores!' });
     }
 });
 
-// criando o endpoint para salvar shop
+// criando o endpoint para salvar store
 router.post('/create', async (req,res) => {
     const { name, site, type, city, state } = req.body;
     console.log(`${name} - ${site} - ${type} - ${city} - ${state} `);
@@ -38,29 +38,29 @@ router.post('/create', async (req,res) => {
     if (!name || !site) 
         return res.send({ error: 'Verifique se todos os campos obrigatórios foram informados! '});
     try {
-        // preparando o objeto com o shop
-        const shop = await Shops.create(req.body);
-        return res.status(201).send({ shop });
+        // preparando o objeto com o store
+        const store = await Stores.create(req.body);
+        return res.status(201).send({ store });
     }
     catch (err) {
-        return res.send({ error: `Erro ao gravar o shop: ${err}`})
+        return res.send({ error: `Erro ao gravar o store: ${err}`})
     }
 });
 
-// criando o endpoint para alterar shop
-router.put('/update/:id', auth, async (req,res) => {
+// criando o endpoint para alterar store
+router.put('/update/:id', async (req,res) => {
     const { name, site, type, city, state } = req.body;
     if (!name || !site) 
         return res.send({ error: 'Verifique se todos os campos obrigatórios foram informados! '});
     try {
-        // preparando o objeto com o shop
-        const shop = await Shops.findByIdAndUpdate(req.params.id, req.body);
-        // realizando uma nova busca após a alteração para obter o shop com as alterações
-        const shopChanged = await Shops.findById(req.params.id);
-        return res.status(201).send({ shopChanged });
+        // preparando o objeto com o store
+        const store = await Stores.findByIdAndUpdate(req.params.id, req.body);
+        // realizando uma nova busca após a alteração para obter o store com as alterações
+        const storeChanged = await Stores.findById(req.params.id);
+        return res.status(201).send({ storeChanged });
     }
     catch (err) {
-        return res.send({ error: `Erro ao atualizar o shop: ${err}`})
+        return res.send({ error: `Erro ao atualizar o store: ${err}`})
     }     
 });
 

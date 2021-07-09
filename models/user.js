@@ -8,13 +8,10 @@ const bcrypt = require('bcrypt');
 // criação do 'schema' para o usuário
 const userSchema = new Schema({
     name: { type: String, required: true, unique: false },
-    lastname: { type: String, required: true, unique: false },
-    birthdate: { type: String, required: true, unique: false},
-    username: { type: String, required: true, unique: true, lowercase: true},
+    username: { type: String, required: false, unique: true, lowercase: true },
+    phone: { type: String, required: false },
+    email: { type: String, required: true, unique: true, lowercase: true },
     password: { type: String, required: true, select: false },
-    clue: { type: String, required: false, unique: false},
-    city: { type: String, required: false, unique: false},
-    state: { type: String, required: false, unique: false},
     created: { type: Date, default: Date.now }
 });
 
@@ -30,3 +27,4 @@ userSchema.pre('save', async function (next) {
 });
 
 module.exports = mongoose.model('User', userSchema);
+

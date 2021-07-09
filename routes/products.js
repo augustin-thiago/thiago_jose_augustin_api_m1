@@ -48,7 +48,7 @@ router.post('/create', async (req,res) => {
 });
 
 // criando o endpoint para alterar produto
-router.put('/update/:id', auth, async (req,res) => {
+router.put('/update/:id', async (req,res) => {
     const { name, type, brand, price, picture} = req.body;
     console.log(`${name} - ${type} - ${brand} - ${price} - ${picture}`);
     if (!name || !brand || !price && price > 0) 
@@ -66,7 +66,7 @@ router.put('/update/:id', auth, async (req,res) => {
 });
 
 // criando o endpoint para apagar usuário
-router.delete('/delete/:id', auth, async (req,res) => {
+router.delete('/delete/:id', async (req,res) => {
     try {
         await Products.findByIdAndDelete(req.params.id);
         return res.send({ error: 'Produto removido com sucesso!' });

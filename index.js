@@ -46,12 +46,12 @@ app.use(bodyParser.json());
 // importando os arquivos de rotas
 const userRoutes = require('./routes/users');
 const productRoutes = require('./routes/products');
-const shopRoutes = require('./routes/shops');
+const storeRoutes = require('./routes/stores');
 
 // associando as duas instâncias de rotas ao app
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
-app.use('/shops', shopRoutes);
+app.use('/stores', storeRoutes);
 
 // configurando a porta em que a API ficará ouvindo
 app.listen(3000);

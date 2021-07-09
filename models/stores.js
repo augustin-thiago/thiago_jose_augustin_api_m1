@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // criação do 'schema' para o usuário
-const shopSchema = new Schema({
+const storeSchema = new Schema({
     name: { type: String, required: true, unique: false },
     site: { type: String, required: true, unique: true },
     type: { type: String, required: false, unique: false},
@@ -13,4 +13,4 @@ const shopSchema = new Schema({
     created: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Shop', shopSchema);
+module.exports = mongoose.model('Store', storeSchema);
